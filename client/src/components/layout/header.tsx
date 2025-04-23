@@ -32,36 +32,47 @@ export const Header = ({ isTopOfPage }: HeaderProps) => {
   return (
     <header 
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled || mobileMenuOpen ? "bg-primary shadow-lg" : "bg-transparent"
+        isScrolled || mobileMenuOpen 
+          ? "bg-background/95 backdrop-blur-sm shadow-lg border-b border-border" 
+          : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <a href="#" className="flex items-center">
-          <div className="flex items-center">
-            <img 
-              src={hastialLogoPath} 
-              alt="Hastial Logo" 
-              className="h-12 w-auto mr-3 rounded-md"
-            />
-            <span className="text-2xl font-display font-bold text-secondary">
+          <div className="relative flex items-center gap-3">
+            {/* Logo wrapper with proper size constraints */}
+            <div className="h-10 w-10 relative overflow-hidden rounded-md border border-primary/10">
+              <img 
+                src={hastialLogoPath} 
+                alt="Hastial Logo" 
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </div>
+            <span className={`text-xl font-semibold tracking-tight ${
+              isScrolled || mobileMenuOpen ? "text-primary" : "text-white"
+            }`}>
               HASTIAL
             </span>
           </div>
         </a>
         
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex space-x-6">
           {navItems.map((item, index) => (
             <a 
               key={index} 
               href={item.href} 
-              className="text-white hover:text-secondary transition-colors font-medium"
+              className={`hover:text-secondary transition-colors font-medium ${
+                isScrolled || mobileMenuOpen ? "text-foreground" : "text-white"
+              }`}
             >
               {item.label}
             </a>
           ))}
           <button 
-            className="text-white hover:text-secondary transition-colors flex items-center font-medium"
+            className={`hover:text-secondary transition-colors flex items-center font-medium ${
+              isScrolled || mobileMenuOpen ? "text-foreground" : "text-white"
+            }`}
             onClick={toggleLanguage}
           >
             <span>{t("nav.language")}</span> <FaGlobe className="ml-1" />
@@ -70,7 +81,9 @@ export const Header = ({ isTopOfPage }: HeaderProps) => {
         
         {/* Mobile Menu Button */}
         <button 
-          className="md:hidden text-white"
+          className={`md:hidden ${
+            isScrolled || mobileMenuOpen ? "text-foreground" : "text-white"
+          }`}
           onClick={toggleMobileMenu}
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -83,10 +96,10 @@ export const Header = ({ isTopOfPage }: HeaderProps) => {
       </div>
       
       {/* Mobile Navigation */}
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {mobileMenuOpen && (
           <motion.div 
-            className="md:hidden bg-primary py-4 px-4"
+            className="md:hidden bg-background py-4 px-4 border-t border-border"
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -97,14 +110,14 @@ export const Header = ({ isTopOfPage }: HeaderProps) => {
                 <a 
                   key={index} 
                   href={item.href} 
-                  className="text-white hover:text-secondary transition-colors"
+                  className="text-foreground hover:text-secondary transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {item.label}
                 </a>
               ))}
               <button 
-                className="text-white hover:text-secondary transition-colors text-left flex items-center"
+                className="text-foreground hover:text-secondary transition-colors text-left flex items-center"
                 onClick={() => {
                   toggleLanguage();
                   setMobileMenuOpen(false);

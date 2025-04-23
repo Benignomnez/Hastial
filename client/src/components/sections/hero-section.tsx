@@ -15,17 +15,17 @@ export const HeroSection = () => {
   
   return (
     <section id="inicio" ref={heroRef} className="relative h-screen flex items-center">
-      {/* Background image */}
+      {/* Background image with modern architecture */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
+          src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80" 
           alt="Modern architectural design" 
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-primary/40"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-black/70"></div>
       </div>
       
-      <div className="container mx-auto px-4 z-10">
+      <div className="container mx-auto px-6 z-10">
         <motion.div 
           className="max-w-2xl"
           initial={{ opacity: 0, y: 20 }}
@@ -36,11 +36,11 @@ export const HeroSection = () => {
           }}
         >
           <h1 
-            className="font-display text-4xl md:text-6xl text-white font-bold mb-4"
+            className="text-4xl md:text-6xl lg:text-7xl text-white font-bold mb-6 leading-tight"
             dangerouslySetInnerHTML={{ __html: formattedTitle }}
           />
           <motion.p 
-            className="text-white text-xl mb-8"
+            className="text-white/90 text-lg md:text-xl mb-10 font-light max-w-xl"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -55,13 +55,13 @@ export const HeroSection = () => {
           >
             <a 
               href="#contacto" 
-              className="inline-block bg-secondary hover:bg-secondary/90 text-white font-semibold py-3 px-8 rounded-md transition-colors text-center"
+              className="inline-block bg-secondary hover:bg-secondary/90 text-white font-medium py-4 px-8 rounded-md transition-all text-center shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               {t("hero.cta.quote")}
             </a>
             <a 
               href="#portafolio" 
-              className="inline-block bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold py-3 px-8 rounded-md transition-colors text-center"
+              className="inline-block bg-white/10 backdrop-blur-sm border border-white/20 text-white hover:bg-white/20 font-medium py-4 px-8 rounded-md transition-all text-center shadow-lg hover:shadow-xl hover:-translate-y-1"
             >
               {t("hero.cta.portfolio")}
             </a>
@@ -70,7 +70,7 @@ export const HeroSection = () => {
       </div>
       
       <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white"
+        className="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white"
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ 
@@ -91,8 +91,8 @@ export const HeroSection = () => {
             }
           }}
         >
-          <span className="text-sm mb-2">{t("hero.scrollDown")}</span>
-          <FaChevronDown />
+          <span className="text-sm mb-2 opacity-80">{t("hero.scrollDown")}</span>
+          <FaChevronDown className="text-secondary" />
         </motion.a>
       </motion.div>
     </section>
