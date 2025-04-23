@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/hooks/use-language";
 import { FaGlobe, FaBars, FaTimes } from "react-icons/fa";
+import hastialLogoPath from "@assets/hastial.jpeg";
 
 type HeaderProps = {
   isTopOfPage: boolean;
@@ -34,9 +35,18 @@ export const Header = ({ isTopOfPage }: HeaderProps) => {
         isScrolled || mobileMenuOpen ? "bg-primary shadow-lg" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         <a href="#" className="flex items-center">
-          <span className="text-2xl font-display font-bold text-secondary">HASTIAL</span>
+          <div className="flex items-center">
+            <img 
+              src={hastialLogoPath} 
+              alt="Hastial Logo" 
+              className="h-12 w-auto mr-3 rounded-md"
+            />
+            <span className="text-2xl font-display font-bold text-secondary">
+              HASTIAL
+            </span>
+          </div>
         </a>
         
         {/* Desktop Navigation */}
@@ -45,13 +55,13 @@ export const Header = ({ isTopOfPage }: HeaderProps) => {
             <a 
               key={index} 
               href={item.href} 
-              className="text-white hover:text-secondary transition-colors"
+              className="text-white hover:text-secondary transition-colors font-medium"
             >
               {item.label}
             </a>
           ))}
           <button 
-            className="text-white hover:text-secondary transition-colors flex items-center"
+            className="text-white hover:text-secondary transition-colors flex items-center font-medium"
             onClick={toggleLanguage}
           >
             <span>{t("nav.language")}</span> <FaGlobe className="ml-1" />

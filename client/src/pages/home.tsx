@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { HeroSection } from "@/components/sections/hero-section";
@@ -30,22 +30,25 @@ export default function Home() {
   }, []);
   
   return (
-    <AnimatePresence>
-      <div className="min-h-screen bg-background">
-        <Header isTopOfPage={isTopOfPage} />
-        
-        <main>
-          <HeroSection />
-          <StatsSection />
-          <AboutSection />
-          <ServicesSection />
-          <PortfolioSection />
-          <TestimonialsSection />
-          <ContactSection />
-        </main>
-        
-        <Footer />
-      </div>
-    </AnimatePresence>
+    <motion.div 
+      className="min-h-screen bg-background"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Header isTopOfPage={isTopOfPage} />
+      
+      <main>
+        <HeroSection />
+        <StatsSection />
+        <AboutSection />
+        <ServicesSection />
+        <PortfolioSection />
+        <TestimonialsSection />
+        <ContactSection />
+      </main>
+      
+      <Footer />
+    </motion.div>
   );
 }
