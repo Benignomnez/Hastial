@@ -1,0 +1,18 @@
+<svg width="160" height="120" viewBox="0 0 160 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- House roof -->
+  <path d="M 10,60 L 80,20 L 150,60 L 150,20 L 160,20 L 160,70 L 10,70 Z" fill="black"/>
+  
+  <!-- Vertical pillar on right -->
+  <rect x="140" y="20" width="10" height="80" fill="black"/>
+  
+  <!-- Ground/foundation with striped pattern -->
+  <rect x="10" y="70" width="140" height="30" fill="url(#stripes)"/>
+  
+  <!-- Define the striped pattern -->
+  <defs>
+    <pattern id="stripes" patternUnits="userSpaceOnUse" width="10" height="10" patternTransform="rotate(45)">
+      <rect width="5" height="10" fill="white"/>
+      <rect x="5" width="5" height="10" fill="black"/>
+    </pattern>
+  </defs>
+</svg> 

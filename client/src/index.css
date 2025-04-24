@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -16,24 +16,24 @@
   --card-foreground: 200 15% 20%;
   --border: 200 15% 90%;
   --input: 200 15% 90%;
-  
+
   /* Teal brand color */
   --primary: 187 75% 40%;
   --primary-foreground: 0 0% 98%;
-  
+
   /* Warm orange accent */
   --secondary: 25 95% 55%;
   --secondary-foreground: 0 0% 98%;
-  
+
   /* Complementary accent for highlights */
   --accent: 220 70% 50%;
   --accent-foreground: 0 0% 98%;
-  
+
   --destructive: 0 85% 50%;
   --destructive-foreground: 0 0% 98%;
   --ring: 187 75% 40%;
   --radius: 0.5rem;
-  
+
   --sidebar-background: 0 0% 100%;
   --sidebar-foreground: 200 15% 20%;
   --sidebar-primary: 187 75% 40%;
@@ -42,7 +42,7 @@
   --sidebar-accent-foreground: 200 15% 20%;
   --sidebar-border: 200 15% 90%;
   --sidebar-ring: 187 75% 40%;
-  
+
   /* Chart colors */
   --chart-1: 187 75% 40%;
   --chart-2: 25 95% 55%;
@@ -63,23 +63,23 @@
   --card-foreground: 0 0% 95%;
   --border: 200 25% 25%;
   --input: 200 25% 25%;
-  
+
   /* Keep teal but adjust for dark mode visibility */
   --primary: 187 65% 45%;
   --primary-foreground: 0 0% 98%;
-  
+
   /* Keep warm orange but slightly desaturated for dark mode */
   --secondary: 25 85% 55%;
   --secondary-foreground: 0 0% 98%;
-  
+
   /* Complementary accent adjusted for dark mode */
   --accent: 220 60% 60%;
   --accent-foreground: 0 0% 98%;
-  
+
   --destructive: 0 70% 50%;
   --destructive-foreground: 0 0% 98%;
   --ring: 187 65% 45%;
-  
+
   --sidebar-background: 200 25% 10%;
   --sidebar-foreground: 0 0% 95%;
   --sidebar-primary: 187 65% 45%;
@@ -96,13 +96,18 @@
   }
 
   body {
-    font-family: 'Montserrat', sans-serif;
+    font-family: "Inter", sans-serif;
     @apply antialiased bg-background text-foreground;
     scroll-behavior: smooth;
   }
-  
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Poppins', sans-serif;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Manrope", sans-serif;
     @apply font-medium;
   }
 }
@@ -113,7 +118,7 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 150ms;
   }
-  
+
   .transition-all {
     transition-property: all;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
